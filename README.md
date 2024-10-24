@@ -5,4 +5,4 @@ Hello! Welcome to my self study resources for [Newman Computational Physics (201
 ## Index
 
 * Chapter 5
-  - [Exercise 2](./src/ch05/ch05_exercise02.rs) (WIP)
+  - [Exercise 2](./src/ch05/ch05_exercise02.rs)
