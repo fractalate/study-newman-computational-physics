@@ -3,6 +3,7 @@ fn integrand(x: f64) -> f64 {
 }
 
 // todo make the function take a function object that we can pass
+// todo move this function somewhere more common so I can just use it when I need it
 fn integrate_simpsons_rule(a: f64, b: f64, n: usize) -> f64 {
   let h = (b - a) / (n as f64);
   let mut total = 0.0;
