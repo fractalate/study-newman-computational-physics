@@ -6,3 +6,10 @@ edition = "2021"
 [[bin]]
 name = "ch05_exercise02"
 path = "src/ch05/ch05_exercise02.rs"
+
+[[bin]]
+name = "ch05_exercise03"
+path = "src/ch05/ch05_exercise03.rs"
+
+[dependencies]
+textplots = "0.8.6"
