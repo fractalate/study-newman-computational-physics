@@ -1,5 +1,5 @@
-use rust_newman_computational_physics::utils::integrate_simpsons_rule::integrate_simpsons_rule;
-use rust_newman_computational_physics::utils::integrate_trapazoidal_rule::integrate_trapazoidal_rule;
+use rust_newman_computational_physics::utils::integrate::integrate_simpsons_rule;
+use rust_newman_computational_physics::utils::integrate::integrate_trapazoidal_rule;
 
 fn main() {
   // f(x) = x^4 - 2x + 1
