@@ -1,5 +1,5 @@
 use rust_newman_computational_physics::utils::integrate::integrate_simpsons_rule;
-use rust_newman_computational_physics::utils::integrate::integrate_trapazoidal_rule;
+use rust_newman_computational_physics::utils::integrate::integrate_trapezoidal_rule;
 
 fn main() {
   // f(x) = x^4 - 2x + 1
@@ -22,26 +22,26 @@ fn main() {
 
   let integral_with_100_slices_simpsons = integrate_simpsons_rule(a, b, 100, integrand);
   let fraction_error_with_100_slices_simpsons = (integral_with_100_slices_simpsons - exact_answer).abs() / exact_answer;
-  let integral_with_100_slices_trapazoidal = integrate_trapazoidal_rule(a, b, 100, integrand);
-  let fraction_error_with_100_slices_trapazoidal = (integral_with_100_slices_trapazoidal - exact_answer).abs() / exact_answer;
+  let integral_with_100_slices_trapezoidal = integrate_trapezoidal_rule(a, b, 100, integrand);
+  let fraction_error_with_100_slices_trapezoidal = (integral_with_100_slices_trapezoidal - exact_answer).abs() / exact_answer;
   println!("c) 100 slices:");
   println!();
   println!("     Simpson's Rule: {}", integral_with_100_slices_simpsons);
   println!("     Fraction Error: {:e}", fraction_error_with_100_slices_simpsons);
-  println!("   Trapazoidal Rule: {}", integral_with_100_slices_trapazoidal);
-  println!("     Fraction Error: {:e}", fraction_error_with_100_slices_trapazoidal);
+  println!("   Trapezoidal Rule: {}", integral_with_100_slices_trapezoidal);
+  println!("     Fraction Error: {:e}", fraction_error_with_100_slices_trapezoidal);
   println!();
 
   let integral_with_1000_slices_simpsons = integrate_simpsons_rule(a, b, 1000, integrand);
   let fraction_error_with_1000_slices_simpsons = (integral_with_1000_slices_simpsons - exact_answer).abs() / exact_answer;
-  let integral_with_1000_slices_trapazoidal = integrate_trapazoidal_rule(a, b, 1000, integrand);
-  let fraction_error_with_1000_slices_trapazoidal = (integral_with_1000_slices_trapazoidal - exact_answer).abs() / exact_answer;
+  let integral_with_1000_slices_trapezoidal = integrate_trapezoidal_rule(a, b, 1000, integrand);
+  let fraction_error_with_1000_slices_trapezoidal = (integral_with_1000_slices_trapezoidal - exact_answer).abs() / exact_answer;
   println!("   1000 Slices:");
   println!();
   println!("     Simpson's Rule: {}", integral_with_1000_slices_simpsons);
   println!("     Fraction Error: {:e}", fraction_error_with_1000_slices_simpsons);
-  println!("   Trapazoidal Rule: {}", integral_with_1000_slices_trapazoidal);
-  println!("     Fraction Error: {:e}", fraction_error_with_1000_slices_trapazoidal);
+  println!("   Trapezoidal Rule: {}", integral_with_1000_slices_trapezoidal);
+  println!("     Fraction Error: {:e}", fraction_error_with_1000_slices_trapezoidal);
   println!();
 }
 
@@ -56,14 +56,14 @@ c) 100 slices:
 
      Simpson's Rule: 4.400000042666668
      Fraction Error: 9.696969893724372e-9
-   Trapazoidal Rule: 4.401066656
+   Trapezoidal Rule: 4.401066656
      Fraction Error: 2.4242181818179273e-4
 
    1000 Slices:
 
      Simpson's Rule: 4.400000000004266
      Fraction Error: 9.695274885953866e-13
-   Trapazoidal Rule: 4.4000106666656
+   Trapezoidal Rule: 4.4000106666656
      Fraction Error: 2.4242421817452255e-6
 
 */

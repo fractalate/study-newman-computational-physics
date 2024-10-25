@@ -1,4 +1,4 @@
-pub fn integrate_trapazoidal_rule<F>(a: f64, b: f64, n: usize, f: F) -> f64
+pub fn integrate_trapezoidal_rule<F>(a: f64, b: f64, n: usize, f: F) -> f64
   where F: Fn(f64) -> f64
 {
   let h = (b - a) / (n as f64);
