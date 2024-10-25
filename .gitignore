@@ -1,2 +1,5 @@
 # rust builds make this dir
 /target/
+
+# output files should be prefixed with out_
+out_*.png

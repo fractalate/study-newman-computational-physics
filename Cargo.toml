@@ -12,4 +12,5 @@ name = "ch05_exercise03"
 path = "src/ch05/ch05_exercise03.rs"
 
 [dependencies]
+plotters = "0.3.7"
 textplots = "0.8.6"

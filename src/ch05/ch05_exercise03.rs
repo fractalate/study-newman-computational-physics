@@ -1,3 +1,4 @@
+use plotters::prelude::*;
 use textplots::{Chart, Plot, Shape};
 
 use rust_newman_computational_physics::utils::integrate::integrate_simpsons_rule;
@@ -13,7 +14,42 @@ fn scaled_erf(x: f64, n: usize) -> f64 {
   integrate_simpsons_rule(0.0, x, n, exp_neg_t2)
 }
 
-fn main() {
+fn ch05_exercise03_b() -> Result<(), Box<dyn std::error::Error>> {
+  // First a quick plot in the terminal.
+  println!("b) A plot of E(x)");
+  Chart::new(75, 30, -4.0, 4.0)
+      .lineplot(&Shape::Continuous(Box::new(|x| scaled_erf(x.into(), 50) as f32)))
+      .display();
+    
+  // Then a plot rendered to a file.
+  let root = BitMapBackend::new("out_ch05_exercise03_b.png", (640, 480)).into_drawing_area();
+  root.fill(&WHITE)?;
+
+  let mut chart = ChartBuilder::on(&root)
+      .caption("E(x)", ("sans-serif", 40).into_font())
+      .margin(10)
+      .x_label_area_size(30)
+      .y_label_area_size(30)
+      .build_cartesian_2d(-4.0..4.0, -1.0..1.0)?;
+
+  chart.configure_mesh().draw()?;
+
+  chart.draw_series(LineSeries::new(
+    (0..=100).map(|x| (x as f64 / 100.0 * 8.0 - 4.0, scaled_erf(x as f64 / 100.0 * 8.0 - 4.0, 50))),
+    &RED,
+  ))?;
+
+  chart.configure_series_labels().draw()?;
+
+  root.present()?;
+
+  println!("   Please see: out_ch05_exercise03_b.png");
+  println!();
+
+  Ok(())
+}
+
+fn main() -> Result<(), Box<dyn std::error::Error>> {
   println!("let E(x) = integral(0.0, x, t -> e^(-t^2)");
   println!();
 
@@ -26,12 +62,7 @@ fn main() {
   }
   println!();
 
-  println!("b) A plot of E(x)");
-  Chart::new(75, 30, -4.0, 4.0)
-      .lineplot(&Shape::Continuous(Box::new(|x| scaled_erf(x.into(), 50) as f32)))
-      .display();
-  println!();
-
+  ch05_exercise03_b()?;
 
   println!("bonus) A plot of e^(-t^2)");
   Chart::new(75, 30, -4.0, 4.0)
@@ -39,7 +70,7 @@ fn main() {
       .display();
   println!();
 
-  // TODO - Try to do a graphical plot!
+  Ok(())
 }
 
 /*
@@ -89,6 +120,7 @@ b) A plot of E(x)
 ⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤⠒⠊⠁⠀⠀⠀⠠⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀ -0.9
 -4.0                              4.0
 
+   Please see: out_ch05_exercise03_b.png
 
 bonus) A plot of e^(-t^2)
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡠⢊⠑⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀ 1.0
@@ -100,6 +132,5 @@ bonus) A plot of e^(-t^2)
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⠜⠀⠀⠀⠀⠀⢈⠀⠀⠀⠀⠀⠈⠢⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠤⠤⠤⠤⠤⠤⠤⠤⠤⠔⠒⠁⠀⠀⠀⠀⠀⠀⠠⠀⠀⠀⠀⠀⠀⠀⠈⠒⠢⠤⠤⠤⠤⠤⠤⠤⠤⠄ 0.0
 -4.0                              4.0
-
 
 */

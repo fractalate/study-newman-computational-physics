@@ -7,3 +7,16 @@ Hello! Welcome to my self study resources for [Newman Computational Physics (201
 * Chapter 5
   - [Exercise 2](./src/ch05/ch05_exercise02.rs)
   - [Exercise 3](./src/ch05/ch05_exercise03.rs)
+
+## Running
+
+For example,
+
+```
+cargo run --bin ch05_exercise03
+```
+
+## Dependencies
+
+The `plotters` dependency may require you to additionally install `fontconfig` development files.
+For me, that required `apt-get install libfontconfig-dev`.
