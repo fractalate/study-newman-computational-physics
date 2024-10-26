@@ -5,6 +5,7 @@ use textplots::{Chart, Plot, Shape};
 
 use rust_newman_computational_physics::utils::integrate::integrate_simpsons_rule;
 
+// J_m(x)
 fn bessel(m: i32, x: f64) -> f64 {
   let m = m as f64;
   integrate_simpsons_rule(0.0, PI, 1000,
@@ -89,8 +90,78 @@ fn ch05_exercise04_a() -> Result<(), Box<dyn std::error::Error>> {
   Ok(())
 }
 
+fn ch05_exercise04_b() -> Result<(), Box<dyn std::error::Error>> {
+  println!("b)");
+
+  // Set up the drawing area
+  let root = BitMapBackend::new("out_ch05_exercise04_b.png", (800, 800)).into_drawing_area();
+  root.fill(&WHITE)?;
+
+  let x0 = -1.0e-6; // -1 um
+  let y0 = -1.0e-6; // -1 um
+  let x1 = 1.0e-6; // 1 um
+  let y1 = 1.0e-6; // 1 um
+  let lambda = 5e-7; // 500nm
+
+  let num_bins = 800;
+  let x_from_bin = |bin: usize| bin as f64 / (num_bins - 1) as f64 * (x1 - x0) + x0;
+  let y_from_bin = |bin: usize| bin as f64 / (num_bins - 1) as f64 * (y1 - y0) + y0;
+
+  let mut max_intensity = 1.0e-15;
+  let mut bins = vec![vec![0.0; num_bins+1]; num_bins];
+  for x_bin in 0..num_bins {
+    for y_bin in 0..num_bins {
+      let x = x_from_bin(x_bin);
+      let y = y_from_bin(y_bin);
+      let r = (x*x + y*y).sqrt();
+      let kr = r * 2.0 * PI / lambda;
+      let sqrt_intensity = bessel(1, kr) / (kr);
+      let intensity = sqrt_intensity * sqrt_intensity;
+      max_intensity = intensity.max(max_intensity);
+      bins[y_bin][x_bin] = intensity;
+    }
+  }
+
+  // TODO get the chart axes showing the measurements
+  let mut chart = ChartBuilder::on(&root)
+    .caption("Diffraction Pattern", ("sans-serif", 40).into_font())
+    .margin(10)
+    .x_label_area_size(30)
+    .y_label_area_size(30)
+    .build_cartesian_2d(x0..x1, y0..y1)?;
+
+  chart.configure_mesh().draw()?;
+
+  for x_bin in 0..num_bins {
+    for y_bin in 0..num_bins {
+      let intensity = bins[y_bin][x_bin];
+      let x = x_from_bin(x_bin);
+      let xnext = x_from_bin(x_bin+1);
+      let y = y_from_bin(y_bin);
+      let ynext = y_from_bin(y_bin+1);
+
+      // .powf(1.0/3.0) helps the bright center region tone it down a bit so the rings are visible
+      let color_intensity = ((intensity / max_intensity).powf(1.0/3.0) * 255.0) as u8;
+      let color = RGBColor(color_intensity, color_intensity, color_intensity);
+
+      chart.draw_series(std::iter::once(Rectangle::new(
+        [(x, y), (xnext, ynext)],
+        color.filled(),
+      )))?;
+    }
+  }
+
+  root.present()?;
+
+  println!("   Please see: out_ch05_exercise04_b.png");
+  println!();
+
+  Ok(())
+}
+
 fn main() -> Result<(), Box<dyn std::error::Error>> {
   ch05_exercise04_a()?;
+  ch05_exercise04_b()?;
 
   Ok(())
 }
