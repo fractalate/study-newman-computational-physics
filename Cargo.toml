@@ -15,6 +15,10 @@ path = "src/ch05/ch05_exercise03.rs"
 name = "ch05_exercise04"
 path = "src/ch05/ch05_exercise04.rs"
 
+[[bin]]
+name = "ch05_exercise06"
+path = "src/ch05/ch05_exercise06.rs"
+
 [dependencies]
 plotters = "0.3.7"
 textplots = "0.8.6"
