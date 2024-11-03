@@ -3,3 +3,9 @@
 
 # output files should be prefixed with out_
 out_*.png
+
+# for ignoring where I usually install my python virtual env
+/venv/
+
+# for ignoring jupyter notebook local cache files
+.ipynb_checkpoints/
