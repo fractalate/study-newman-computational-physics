@@ -47,7 +47,7 @@ When returning to the project, activate your Python virtual environment again:
 source venv/bin/activate
 ```
 
-Notebooks are distributed throughout the proejct, so you can open up Jupyter in the root of this project:
+Notebooks are distributed throughout the project, so you can open up Jupyter in the root of this project:
 
 ```
 jupyter notebook
