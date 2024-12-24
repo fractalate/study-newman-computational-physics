@@ -21,6 +21,16 @@ For example,
 cargo run --bin ch05_exercise03
 ```
 
+## Numerical Methods
+
+The following numerical methods are implemented as part of this codebase:
+
+* Module `rust_newman_computational_physics::utils::integrate`
+  - [`integrate_simpsons_rule`](./src/utils/integrate/integrate_simpsons_rule.rs)
+  - [`integrate_simpsons_rule_adaptive`](./src/utils/integrate/integrate_simpsons_rule.rs)
+  - [`integrate_trapezoidal_rule`](./src/utils/integrate/integrate_trapezoidal_rule.rs)
+  - [`integrate_trapezoidal_rule_adaptive`](./src/utils/integrate/integrate_trapezoidal_rule.rs)
+
 ## Rust Dependencies
 
 The `plotters` dependency may require you to additionally install `fontconfig` development files.
