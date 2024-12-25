@@ -31,7 +31,7 @@ fn main() {
   assert!(exact_answer == exact_answer_plus_error_error);
   println!("c) We see that these errors don't agree perfectly, they differ by {:e}.", error_error);
   println!("   Adding the error to the exact exact answer produces a value of {}", exact_answer_plus_error_error);
-  println!("   which is still the same exact answer. The discrepency in errors is");
+  println!("   which is still the same exact answer. The discrepancy in errors is");
   println!("   due to the limit of precision in each approximation with Simpson's");
   println!("   Rule.");
   println!();
@@ -50,7 +50,7 @@ b) Exact error is    2.6666666666841365e-5
 
 c) We see that these errors don't agree perfectly, they differ by 1.7763636156638285e-16.
    Adding the error to the exact exact answer produces a value of 4.4
-   which is still the same exact answer. The discrepency in errors is
+   which is still the same exact answer. The discrepancy in errors is
    due to the limit of precision in each approximation with Simpson's
    Rule.
 
