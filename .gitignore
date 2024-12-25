@@ -1,9 +1,6 @@
 # rust builds make this dir
 /target/
 
-# output files should be prefixed with out_
-out_*.png
-
 # for ignoring where I usually install my python virtual env
 /venv/
 
