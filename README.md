@@ -31,6 +31,7 @@ The following numerical methods are implemented as part of this codebase:
   - [`integrate_simpsons_rule_adaptive`](./src/utils/integrate/integrate_simpsons_rule.rs)
   - [`integrate_trapezoidal_rule`](./src/utils/integrate/integrate_trapezoidal_rule.rs)
   - [`integrate_trapezoidal_rule_adaptive`](./src/utils/integrate/integrate_trapezoidal_rule.rs)
+  - [`integrate_romberg_adaptive`](./src/utils/integrate/integrate_trapezoidal_rule.rs)
 
 ## Rust Dependencies
 

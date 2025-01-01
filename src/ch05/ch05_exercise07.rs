@@ -1,5 +1,7 @@
 use plotters::prelude::*;
 use textplots::{Chart, Plot, Shape};
+use rust_newman_computational_physics::utils::integrate::integrate_romberg_adaptive;
+
 
 // This is a copy of the integrate_simpsons_rule_adaptive implementation.
 pub fn add_odds_from_1<F>(a: f64, h: f64, n: usize, f: F) -> f64
@@ -64,6 +66,8 @@ pub fn integrate_simpsons_rule_adaptive<F>(a: f64, b: f64, epsilon: f64, f: F) -
       break
     }
   }
+
+  println!("    Answer {}", i1);
 
   i1
 }
@@ -135,6 +139,8 @@ pub fn integrate_trapezoidal_rule_adaptive<F>(a: f64, b: f64, epsilon: f64, f: F
     approximation1 = approximation2;
   }
 
+  println!("    Answer {}", approximation2);
+
   approximation2
 }
 
@@ -169,13 +175,13 @@ pub fn integrate_romberg<F>(a: f64, b: f64, epsilon: f64, f: F) -> f64
     println!();
 
     // If the approximation is within our error bounds, we have our answer.
-    // See section 5.2.1, equation (5.28).
+    // See section 5.4, equation (5.49).
     let error = (rs2[rs2.len() - 2] - rs1[rs2.len() - 2] ) / ((4 as i64).pow(rs1.len() as u32) - 1) as f64;
 
     println!("    Number of slices: {}, Estimated Error: {}", n, error);
 
     if error.abs() < epsilon {
-      break;
+      break; // rs2 will have the final approximations.
     }
 
     std::mem::swap(&mut rs1, &mut rs2);
@@ -183,7 +189,9 @@ pub fn integrate_romberg<F>(a: f64, b: f64, epsilon: f64, f: F) -> f64
     approximation1 = approximation2;
   }
 
-  rs1[rs1.len() - 1]
+  println!("    Answer {}", rs2[rs2.len() - 1]);
+
+  rs2[rs2.len() - 1]
 }
 
 
@@ -239,6 +247,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
   println!();
   integrate_romberg(a, b, 1.0e-6, integrand);
   println!();
+  println!("    Compare to Library {}", integrate_romberg_adaptive(a, b, 1.0e-6, integrand));
 
   Ok(())
 }
@@ -273,6 +282,7 @@ a) Integral of ( sin(sqrt(100*x)) )^2 from 0 to 1 with trapezoidal rule:
     Number of slices: 1024, Estimate of Integral: 0.45582494813241997, Estimated Error: 0.000007582826918613635
     Number of slices: 2048, Estimate of Integral: 0.45583063620164654, Estimated Error: 0.000001896023075524204
     Number of slices: 4096, Estimate of Integral: 0.455832058278271, Estimated Error: 0.0000004740255414859007
+    Answer 0.455832058278271
 
     (bonus) with Simpson's Rule:
 
@@ -284,6 +294,7 @@ a) Integral of ( sin(sqrt(100*x)) )^2 from 0 to 1 with trapezoidal rule:
     Number of posts: 64, Estimate of Integral: 0.45574568635801116, Estimated Error: 0.00008181700486445954
     Number of posts: 128, Estimate of Integral: 0.45582702875861086, Estimated Error: 0.0000054228267066469545
     Number of posts: 256, Estimate of Integral: 0.45583218714672064, Estimated Error: 0.00000034389254065144335
+    Answer 0.45583218714672064
 
 b) Integral of ( sin(sqrt(100*x)) )^2 from 0 to 1 with Romberg integration:
 
@@ -300,5 +311,8 @@ b) Integral of ( sin(sqrt(100*x)) )^2 from 0 to 1 with Romberg integration:
     Number of slices: 32, Estimated Error: 0.000009739968281508114
     0.4557456863580111 0.4558275033628756 0.45583200741167557 0.45583241782141004 0.45583248103309976 0.45583249446137863 
     Number of slices: 64, Estimated Error: 0.000000013428278877370225
+    Answer 0.45583249446137863
+
+    Compare to Library 0.45583249446137863
 
 */
