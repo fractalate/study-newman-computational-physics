@@ -27,6 +27,10 @@ path = "src/ch05/ch05_exercise07.rs"
 name = "ch05_exercise08"
 path = "src/ch05/ch05_exercise08.rs"
 
+[[bin]]
+name = "ch05_exercise09"
+path = "src/ch05/ch05_exercise09.rs"
+
 [dependencies]
 ndarray = "0.16.1"
 plotters = "0.3.7"
