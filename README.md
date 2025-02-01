@@ -10,12 +10,12 @@ Hello! Welcome to my self study resources for [Newman Computational Physics (201
   - [Exercise 2](./src/ch05/ch05_exercise02.rs)
   - [Exercise 3](./src/ch05/ch05_exercise03.rs) (Outputs: [3b](./out_ch05_exercise03_b.png))
   - [Exercise 4](./src/ch05/ch05_exercise04.rs)  (Outputs: [4a](./out_ch05_exercise04_a.png), [4b](./out_ch05_exercise04_b.png))
-  - [Exercise 5 (Notebook)](./src/ch05/ch05_exercise05.ipynb)
+  - Exercise 5 ([Notebook](./src/ch05/ch05_exercise05.ipynb))
   - [Exercise 6](./src/ch05/ch05_exercise06.rs)
   - [Exercise 7](./src/ch05/ch05_exercise07.rs) (Outputs: [bonus](./out_ch05_exercise07_bonus.png))
   - [Exercise 8](./src/ch05/ch05_exercise08.rs)
   - [Exercise 9](./src/ch05/ch05_exercise09.rs) (Outputs: [9b](./out_ch05_exercise09_b.png))
-  - [Exercise 10 (Notebook)](./src/ch05/ch05_exercise10.ipynb) (WIP)
+  - [Exercise 10](./src/ch05/ch05_exercise10.rs) ([Notebook](./src/ch05/ch05_exercise10.ipynb), Outputs: [10b](./out_ch05_exercise10_b.png))
 
 ## Running
 
