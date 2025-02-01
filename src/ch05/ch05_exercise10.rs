@@ -14,7 +14,7 @@ fn calculate_period_of_oscillation(a: f64) -> f64 {
   unscaled_approx * SQRT8
 }
 
-fn ch05_exercise09_b() -> Result<(), Box<dyn std::error::Error>> {
+fn ch05_exercise10_b() -> Result<(), Box<dyn std::error::Error>> {
   let a = 0.0;
   let b = 2.0;
 
@@ -62,7 +62,7 @@ fn ch05_exercise09_b() -> Result<(), Box<dyn std::error::Error>> {
 }
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
-  ch05_exercise09_b()?;
+  ch05_exercise10_b()?;
 
   Ok(())
 }
