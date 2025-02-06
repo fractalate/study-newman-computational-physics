@@ -4,6 +4,10 @@ version = "0.1.0"
 edition = "2021"
 
 [[bin]]
+name = "ch05_example03"
+path = "src/ch05/ch05_example03.rs"
+
+[[bin]]
 name = "ch05_exercise02"
 path = "src/ch05/ch05_exercise02.rs"
 

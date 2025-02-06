@@ -17,6 +17,7 @@ Hello! Welcome to my self study resources for [Newman Computational Physics (201
   - [Exercise 9](./src/ch05/ch05_exercise09.rs) (Outputs: [9b](./out_ch05_exercise09_b.png))
   - [Exercise 10](./src/ch05/ch05_exercise10.rs) ([Notebook](./src/ch05/ch05_exercise10.ipynb), Outputs: [10b](./out_ch05_exercise10_b.png))
   - [Exercise 11](./src/ch05/ch05_exercise11.rs) (Outputs: [11](./out_ch05_exercise11.png))
+  - [Example 3](./src/ch05/ch05_example03.rs)
 
 ## Running
 
@@ -32,6 +33,7 @@ The following numerical methods are implemented as part of this codebase:
 
 * Module `rust_newman_computational_physics::utils::integrate`
   - [`integrate_gaussian_quadrature`](./src/utils/integrate/integrate_gaussian_quadrature.rs)
+  - [`integrate_gaussian_quadrature_adaptive`](./src/utils/integrate/integrate_gaussian_quadrature.rs)
   - [`integrate_simpsons_rule`](./src/utils/integrate/integrate_simpsons_rule.rs)
   - [`integrate_simpsons_rule_adaptive`](./src/utils/integrate/integrate_simpsons_rule.rs)
   - [`integrate_trapezoidal_rule`](./src/utils/integrate/integrate_trapezoidal_rule.rs)
