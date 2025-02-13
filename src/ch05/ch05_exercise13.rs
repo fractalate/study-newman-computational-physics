@@ -1,10 +1,9 @@
-use core::net;
 use std::f64::consts::PI;
 
 use plotters::prelude::*;
 use textplots::{Chart, Plot, Shape};
 
-use rust_newman_computational_physics::utils::integrate::{integrate_gaussian_quadrature, integrate_simpsons_rule};
+use rust_newman_computational_physics::utils::integrate::integrate_gaussian_quadrature;
 
 fn factorial(n: usize) -> f64 {
   if n == 0 {
