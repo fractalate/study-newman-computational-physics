@@ -19,6 +19,7 @@ Hello! Welcome to my self study resources for [Newman Computational Physics (201
   - [Exercise 11](./src/ch05/ch05_exercise11.rs) (Outputs: [11](./out_ch05_exercise11.png))
   - [Example 3](./src/ch05/ch05_example03.rs)
   - [Exercise 12](./src/ch05/ch05_exercise12.rs) ([Notebook](./src/ch05/ch05_exercise12.ipynb))
+  - [Exercise 13](./src/ch05/ch05_exercise13.rs) (Outputs: [13a](./out_ch05_exercise13_a.png), [13b](./out_ch05_exercise13_b.png))
 
 ## Running
 
